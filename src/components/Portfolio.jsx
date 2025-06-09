@@ -160,12 +160,29 @@ const Portfolio = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className={`py-20 px-4 relative transition-all duration-1000 ${isVisible.skills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        {/* Japanese Pattern Background */}
-        <div className="absolute inset-0 opacity-5">
+      <section id="skills" className={`py-20 px-4 relative transition-all duration-1000 ${isVisible.skills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} overflow-hidden`}>
+        {/* Skills Background Wallpaper */}
+        <div className="absolute inset-0 z-0">
+          {/* Local wallpaper image */}
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('/skills_back.jpg')`,
+            }}
+          ></div>
+          
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-white bg-opacity-85"></div>
+          
+          {/* Optional: Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-red-50/30"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto relative z-10">
+        {/* Japanese Pattern Background */}
+        <div className="absolute inset-0 opacity-5 z-10">
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-20">
           <h2 className="text-4xl font-light text-center mb-4 text-slate-800 relative">
             <span className="relative">
               Habilidades
@@ -258,12 +275,18 @@ const Portfolio = () => {
                 </div>
                 
                 {/* Project Image */}
-                <div className="h-48 relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                <div className="h-64 relative overflow-hidden group-hover:scale-105 transition-transform duration-500 bg-slate-100">
                   {/* Real project image */}
                   <img
                     src={project.image}
                     alt={project.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                    style={{
+                      aspectRatio: '16/9',
+                      minHeight: '100%',
+                      width: '100%'
+                    }}
                     onError={(e) => {
                       // Fallback to gradient background if image fails to load
                       e.target.style.display = 'none';
@@ -276,16 +299,22 @@ const Portfolio = () => {
                     className="w-full h-full bg-gradient-to-br from-slate-200 to-stone-200 flex items-center justify-center absolute inset-0"
                     style={{ display: 'none' }}
                   >
-                    <div className="text-slate-500 text-lg font-medium">
+                    <div className="text-slate-500 text-lg font-medium text-center px-4">
                       {project.name}
                     </div>
                   </div>
                   
-                  {/* Overlay on hover */}
+                  {/* Image optimization overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-black/5 pointer-events-none"></div>
+                  
+                  {/* Hover overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1 text-sm font-medium text-slate-800">
-                        Ver Projeto
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 text-sm font-medium text-slate-800 shadow-lg">
+                        <div className="flex items-center space-x-1">
+                          <ExternalLink size={14} />
+                          <span>Ver Projeto</span>
+                        </div>
                       </div>
                     </div>
                   </div>
