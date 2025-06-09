@@ -10,8 +10,8 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
           
-          {/* Left Side - Code Metrics */}
-          <div className="text-center md:text-left flex flex-col items-center md:items-start justify-center">
+          {/* Left Side - Code Metrics - Hidden on mobile */}
+          <div className="hidden md:flex text-center md:text-left flex-col items-center md:items-start justify-center">
             <div className="text-slate-500 text-xs space-y-1">
               <div className="flex items-center space-x-2">
                 <span className="text-slate-400">☕</span>
