@@ -24,43 +24,43 @@ const Portfolio = () => {
   const projects = [
     {
       name: 'Calculator App',
-      image: '🧮',
+      image: '/projects/calculator-app.jpg',
       description: 'Calculadora moderna com interface limpa',
       stack: 'HTML, CSS, JavaScript',
       demo: 'https://calculator-app-main-dun.vercel.app/',
-      repo: '#'
+      repo: 'https://github.com/alisonschatz/calculator-app'
     },
     {
       name: 'Age Calculator',
-      image: '📅',
+      image: '/projects/age-calculator.jpg',
       description: 'Calculadora de idade com validação',
       stack: 'React, CSS Modules',
       demo: 'https://age-calculator-app-main-indol.vercel.app/',
-      repo: '#'
+      repo: 'https://github.com/alisonschatz/age-calculator'
     },
     {
       name: 'IP Address Tracker',
-      image: '🌍',
+      image: '/projects/ip-tracker.jpg',
       description: 'Rastreador de endereços IP com mapas',
       stack: 'JavaScript, API Integration',
       demo: 'https://ip-address-tracker-master-wine.vercel.app/',
-      repo: '#'
+      repo: 'https://github.com/alisonschatz/ip-address-tracker'
     },
     {
       name: 'Anime Tracker',
-      image: '🎌',
+      image: '/projects/anime-tracker.jpg',
       description: 'Plataforma para acompanhar animes',
       stack: 'React, API, Firebase',
       demo: 'https://animetrackerv1.vercel.app/',
-      repo: '#'
+      repo: 'https://github.com/alisonschatz/anime-tracker'
     },
     {
       name: 'Quest Tasks',
-      image: '✅',
+      image: '/projects/quest-tasks.jpg',
       description: 'Sistema de gerenciamento de tarefas',
       stack: 'Next.js, MongoDB, TypeScript',
       demo: 'https://quest-tasks-pucrs-tcc.vercel.app/',
-      repo: '#'
+      repo: 'https://github.com/alisonschatz/quest-tasks'
     }
   ];
 
@@ -258,12 +258,37 @@ const Portfolio = () => {
                 </div>
                 
                 {/* Project Image */}
-                <div className="h-48 bg-gradient-to-br from-slate-100 to-stone-100 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-500 relative overflow-hidden">
-                  {/* Subtle pattern overlay */}
-                  <div className="absolute inset-0 opacity-10">
-                    <div className="w-full h-full bg-gradient-to-br from-red-50 to-amber-50"></div>
+                <div className="h-48 relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                  {/* Real project image */}
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback to gradient background if image fails to load
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  
+                  {/* Fallback background (hidden by default) */}
+                  <div 
+                    className="w-full h-full bg-gradient-to-br from-slate-200 to-stone-200 flex items-center justify-center absolute inset-0"
+                    style={{ display: 'none' }}
+                  >
+                    <div className="text-slate-500 text-lg font-medium">
+                      {project.name}
+                    </div>
                   </div>
-                  <span className="relative z-10">{project.image}</span>
+                  
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1 text-sm font-medium text-slate-800">
+                        Ver Projeto
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 
                 {/* Project Info */}
