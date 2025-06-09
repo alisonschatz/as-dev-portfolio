@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Code, Coffee } from 'lucide-react';
+import { Heart, Coffee } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,20 +18,25 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
           
-          {/* Brand Section */}
-          <div className="text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start space-x-3 mb-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-amber-500 rounded-lg flex items-center justify-center">
-                <Code size={16} className="text-white" />
+          {/* Left Side - Code Metrics */}
+          <div className="text-center md:text-left flex flex-col items-center md:items-start justify-center">
+            <div className="text-slate-500 text-xs space-y-1">
+              <div className="flex items-center space-x-2">
+                <span className="text-slate-400">☕</span>
+                <span>1000+ linhas de código</span>
               </div>
-              <h3 className="text-xl font-bold text-white">AS.DEV</h3>
+              <div className="flex items-center space-x-2">
+                <span className="text-slate-400">🔥</span>
+                <span>100% uptime</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-slate-400">⭐</span>
+                <span>Clean code advocate</span>
+              </div>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-              Desenvolvedor Front-End apaixonado por criar experiências digitais únicas.
-            </p>
           </div>
 
-          {/* Creative Center Section */}
+          {/* Center - Logo and Stats */}
           <div className="text-center flex flex-col items-center justify-center">
             {/* Logo Image */}
             <div className="relative mb-2">
@@ -72,7 +77,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Right Side - Navigation */}
           <div className="text-center md:text-right relative z-10">
             <h4 className="text-white font-semibold mb-2 flex items-center justify-center md:justify-end space-x-2 text-sm">
               <span>🗾</span>
