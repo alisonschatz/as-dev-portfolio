@@ -255,7 +255,7 @@ const Portfolio = () => {
           ></div>
           
           {/* Light overlay for text readability */}
-          <div className="absolute inset-0 bg-slate-100 bg-opacity-90"></div>
+          <div className="absolute inset-0 bg-slate-100 bg-opacity-40"></div>
           
           {/* Optional: Subtle gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-stone-50/60 via-transparent to-slate-100/40"></div>
