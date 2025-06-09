@@ -6,7 +6,7 @@
 Um portfólio moderno com inspiração na estética japonesa, desenvolvido com foco em performance, acessibilidade e design responsivo utilizando **React** e **Tailwind CSS**.
 
 ---
-![Imagem Ilustrativa](preview.png)
+![Imagem Ilustrativa](public/preview.png)
 ## 🔗 Demonstração
 
 [→ Ver Portfólio Online](https://as-dev-portfolio.vercel.app)
