@@ -4,22 +4,6 @@ import { Heart, Code, Coffee } from 'lucide-react';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
-    { name: 'Habilidades', href: '#skills' },
-    { name: 'Projetos', href: '#projects' },
-    { name: 'Contato', href: '#contact' }
-  ];
-
-  const handleNavClick = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
   return (
     <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-t border-slate-700/50">
       {/* Background Pattern */}
@@ -49,13 +33,18 @@ const Footer = () => {
 
           {/* Creative Center Section */}
           <div className="text-center flex flex-col items-center justify-center">
-            {/* Animated Japanese Symbol */}
+            {/* Logo Image */}
             <div className="relative mb-2">
-              <div className="w-14 h-14 bg-gradient-to-br from-red-600/20 to-amber-500/20 rounded-full flex items-center justify-center border border-red-500/30 backdrop-blur-sm">
-                <span className="text-red-400 text-xl animate-pulse">道</span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="AS.DEV Logo"
+                className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
+                }}
+              />
               {/* Floating elements around */}
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-amber-400 rounded-full animate-ping opacity-60"></div>
+              <div className="absolute -top-1 -right-1 w-1 h-1 bg-amber-400 rounded-full animate-ping opacity-60"></div>
               <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-red-400 rounded-full animate-pulse opacity-80"></div>
             </div>
             
@@ -84,24 +73,69 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="text-center md:text-right">
+          <div className="text-center md:text-right relative z-10">
             <h4 className="text-white font-semibold mb-2 flex items-center justify-center md:justify-end space-x-2 text-sm">
               <span>🗾</span>
               <span>Navegação</span>
             </h4>
-            <ul className="space-y-1">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className="text-slate-400 hover:text-white transition-colors duration-300 inline-flex items-center space-x-1 group text-sm cursor-pointer"
-                  >
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                      {link.name}
-                    </span>
-                  </button>
-                </li>
-              ))}
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="#skills"
+                  className="block text-slate-400 hover:text-white transition-colors duration-300 text-sm cursor-pointer hover:underline p-1 hover:bg-slate-700/50 rounded"
+                  style={{ pointerEvents: 'auto', position: 'relative', zIndex: 20 }}
+                  onClick={(e) => {
+                    console.log('Clicou em Habilidades');
+                    const element = document.getElementById('skills');
+                    if (element) {
+                      e.preventDefault();
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  <span className="hover:translate-x-1 transition-transform duration-300 inline-block">
+                    Habilidades
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#projects"
+                  className="block text-slate-400 hover:text-white transition-colors duration-300 text-sm cursor-pointer hover:underline p-1 hover:bg-slate-700/50 rounded"
+                  style={{ pointerEvents: 'auto', position: 'relative', zIndex: 20 }}
+                  onClick={(e) => {
+                    console.log('Clicou em Projetos');
+                    const element = document.getElementById('projects');
+                    if (element) {
+                      e.preventDefault();
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  <span className="hover:translate-x-1 transition-transform duration-300 inline-block">
+                    Projetos
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="block text-slate-400 hover:text-white transition-colors duration-300 text-sm cursor-pointer hover:underline p-1 hover:bg-slate-700/50 rounded"
+                  style={{ pointerEvents: 'auto', position: 'relative', zIndex: 20 }}
+                  onClick={(e) => {
+                    console.log('Clicou em Contato');
+                    const element = document.getElementById('contact');
+                    if (element) {
+                      e.preventDefault();
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  <span className="hover:translate-x-1 transition-transform duration-300 inline-block">
+                    Contato
+                  </span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>

@@ -56,7 +56,7 @@ const ContactSection = ({ isVisible }) => {
   ];
 
   return (
-    <section id="contact" className={`py-20 px-4 relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <section id="contact" className={`py-16 px-4 relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       {/* Background melhorado */}
       <div className="absolute inset-0 z-0">
         <div 
@@ -79,8 +79,8 @@ const ContactSection = ({ isVisible }) => {
 
       <div className="max-w-7xl mx-auto relative z-20">
         {/* Header melhorado */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-4 mb-6">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center space-x-4 mb-4">
             <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-red-400 to-transparent"></div>
             <div className="flex items-center space-x-2">
               <span className="text-red-300 text-2xl">🏮</span>
@@ -90,20 +90,20 @@ const ContactSection = ({ isVisible }) => {
             <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-red-400 to-transparent"></div>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-light mb-6 text-white relative">
+          <h2 className="text-4xl md:text-5xl font-light mb-4 text-white relative">
             <span className="relative">
               Vamos Conversar
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-red-500 via-amber-400 to-red-500 rounded-full"></div>
+              <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-red-500 via-amber-400 to-red-500 rounded-full"></div>
             </span>
           </h2>
           
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base text-slate-300 max-w-2xl mx-auto leading-relaxed mt-6">
             Pronto para transformar ideias em realidade digital? Entre em contato para discutirmos seu próximo projeto.
           </p>
         </div>
 
         {/* Cards de contato principais */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
           {contactMethods.map((method, index) => {
             const Icon = method.icon;
             return (
@@ -121,19 +121,19 @@ const ContactSection = ({ isVisible }) => {
                   href={method.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative block bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-700 hover:-translate-y-4 hover:shadow-2xl transform-gpu"
+                  className="relative block bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-700 hover:-translate-y-3 hover:shadow-2xl transform-gpu overflow-hidden"
                 >
                   {/* Icon container */}
-                  <div className={`w-20 h-20 mx-auto mb-6 bg-gradient-to-br ${method.gradient} rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-500`}>
-                    <Icon size={32} className="text-white" />
+                  <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${method.gradient} rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-500`}>
+                    <Icon size={24} className="text-white" />
                   </div>
 
                   {/* Content */}
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-white mb-2">{method.title}</h3>
-                    <p className="text-slate-300 text-sm mb-4">{method.subtitle}</p>
-                    <p className="text-white font-semibold text-lg mb-4 break-all">{method.value}</p>
-                    <p className="text-slate-400 text-sm leading-relaxed">{method.description}</p>
+                    <h3 className="text-xl font-bold text-white mb-2">{method.title}</h3>
+                    <p className="text-slate-300 text-sm mb-3">{method.subtitle}</p>
+                    <p className="text-white font-semibold text-base mb-3 break-all">{method.value}</p>
+                    <p className="text-slate-400 text-xs leading-relaxed">{method.description}</p>
                   </div>
 
                   {/* Hover indicator */}
@@ -143,8 +143,8 @@ const ContactSection = ({ isVisible }) => {
                     </div>
                   </div>
 
-                  {/* Bottom accent */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${method.gradient} rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
+                  {/* Bottom accent - corrigido para não estourar */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${method.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-3xl`}></div>
                 </a>
               </div>
             );
@@ -152,7 +152,7 @@ const ContactSection = ({ isVisible }) => {
         </div>
 
         {/* Informações adicionais - mais discretas */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-lg mx-auto mb-12">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-lg mx-auto mb-8">
           {additionalInfo.map((info, index) => {
             const Icon = info.icon;
             return (
@@ -170,15 +170,15 @@ const ContactSection = ({ isVisible }) => {
 
         {/* Call to action compacto */}
         <div className="text-center">
-          <div className="inline-flex flex-col items-center space-y-4 max-w-md mx-auto">
-            <div className="flex items-center space-x-3 mb-2">
+          <div className="inline-flex flex-col items-center space-y-3 max-w-md mx-auto">
+            <div className="flex items-center space-x-3 mb-1">
               <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-red-500"></div>
               <span className="text-red-300 text-lg">道</span>
               <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-red-500"></div>
             </div>
             
-            <h3 className="text-xl font-bold text-white">Pronto para começar?</h3>
-            <p className="text-slate-300 text-base">
+            <h3 className="text-lg font-bold text-white">Pronto para começar?</h3>
+            <p className="text-slate-300 text-sm">
               Vamos criar algo extraordinário juntos.
             </p>
             
