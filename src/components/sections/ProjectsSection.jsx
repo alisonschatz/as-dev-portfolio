@@ -58,30 +58,30 @@ const ProjectsSection = ({ isVisible }) => {
 
   return (
     <section id="projects" className={`py-24 px-4 relative transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} overflow-hidden`}>
-      {/* Background mais escuro para contraste */}
+      {/* Background suave - menos escuro */}
       <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-gradient-to-br from-slate-100 via-slate-200 to-stone-200"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-slate-300/40 via-transparent to-slate-300/30"></div>
-      </div>
-
-      {/* Elementos decorativos minimalistas */}
-      <div className="absolute inset-0 opacity-5 z-10">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-slate-300 to-slate-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-br from-stone-300 to-slate-300 rounded-full blur-3xl"></div>
+        {/* Base mais suave */}
+        <div className="w-full h-full bg-gradient-to-br from-slate-600 via-slate-700 to-stone-700"></div>
+        
+        {/* Overlay mais claro */}
+        <div className="absolute inset-0 bg-slate-800 bg-opacity-50"></div>
+        
+        {/* Gradiente sutil para profundidade */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-600/40 via-transparent to-blue-800/20"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-20">
         {/* Header elegante com estilo japonês */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-light text-slate-800 mb-4 tracking-tight relative">
+          <h2 className="text-5xl font-light text-white mb-4 tracking-tight relative">
             <span className="relative">
               Projetos
               {/* Japanese character for "work/project" */}
-              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-red-800 text-2xl opacity-60">作</div>
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-red-300 text-2xl opacity-60">作</div>
               <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
             </span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed italic">
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed italic">
             "Cada projeto é uma obra de arte digital"
           </p>
         </div>
@@ -201,10 +201,10 @@ const ProjectsSection = ({ isVisible }) => {
 
         {/* Footer da seção */}
         <div className="text-center mt-20">
-          <div className="inline-flex items-center space-x-3 text-slate-500">
-            <div className="w-8 h-px bg-slate-300"></div>
+          <div className="inline-flex items-center space-x-3 text-slate-400">
+            <div className="w-8 h-px bg-slate-600"></div>
             <span className="text-sm font-medium">Mais projetos em breve</span>
-            <div className="w-8 h-px bg-slate-300"></div>
+            <div className="w-8 h-px bg-slate-600"></div>
           </div>
         </div>
       </div>

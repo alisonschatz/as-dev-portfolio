@@ -61,7 +61,7 @@ const SkillsSection = ({ isVisible }) => {
         ></div>
         
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-white bg-opacity-85"></div>
+        <div className="absolute inset-0 bg-white bg-opacity-75"></div>
         
         {/* Optional: Subtle gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-red-50/30"></div>
@@ -76,7 +76,7 @@ const SkillsSection = ({ isVisible }) => {
           <span className="relative">
             Habilidades
             {/* Japanese character */}
-            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-red-800 text-2xl opacity-60">技</div>
+            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-red-800 text-2xl opacity-60">技</div>
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-red-800"></div>
           </span>
         </h2>
@@ -98,12 +98,12 @@ const SkillsSection = ({ isVisible }) => {
             </button>
 
             {/* Skills Carousel - Fixed Container with controlled height */}
-            <div className="flex items-end justify-center w-full max-w-4xl mx-auto overflow-hidden h-48">
-              <div className="flex items-end justify-center space-x-4 w-full h-full">
+            <div className="flex items-center justify-center w-full max-w-4xl mx-auto overflow-visible h-56">
+              <div className="flex items-center justify-center space-x-4 w-full h-full">
                 {getVisibleSkills().map((skill, index) => (
                   <div
                     key={`${skill.name}-${index}`}
-                    className={`relative transition-all duration-700 ease-out flex-shrink-0 flex items-end ${
+                    className={`relative transition-all duration-700 ease-out flex-shrink-0 flex items-center ${
                       skill.position === 0
                         ? 'z-20 opacity-100'
                         : Math.abs(skill.position) === 1
@@ -115,7 +115,7 @@ const SkillsSection = ({ isVisible }) => {
                       height: skill.position === 0 ? '170px' : 
                              Math.abs(skill.position) === 1 ? '150px' : '130px',
                       display: 'flex',
-                      alignItems: 'flex-end'
+                      alignItems: 'center'
                     }}
                   >
                     <div className={`group bg-white rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-500 cursor-pointer border-2 ${

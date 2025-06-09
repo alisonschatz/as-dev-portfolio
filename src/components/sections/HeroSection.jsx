@@ -162,12 +162,33 @@ const HeroSection = () => {
             </nav>
           </div>
 
-          {/* Subtle scroll hint integrado à navegação */}
-          <div className="mt-8 flex justify-center">
-            <div className="text-white/50 text-xs flex items-center space-x-2 animate-pulse">
-              <span>↓</span>
-              <span>Role para explorar</span>
-              <span>↓</span>
+          {/* Scroll indicator mais visível */}
+          <div className="mt-12 flex justify-center">
+            <div className="flex flex-col items-center space-y-2 text-white/60 hover:text-white/90 transition-all duration-500 cursor-pointer" 
+                 onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}>
+              {/* Linha sutil */}
+              <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
+              
+              {/* Indicador principal */}
+              <div className="flex flex-col items-center space-y-1">
+                <div className="w-5 h-8 border-2 border-white/50 rounded-full flex justify-center relative overflow-hidden bg-white/5 backdrop-blur-sm">
+                  <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+                  {/* Seta animada dentro */}
+                  <div className="absolute bottom-1.5 animate-bounce">
+                    <svg width="10" height="5" viewBox="0 0 10 5" fill="none">
+                      <path d="M1 1.5L5 4L9 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+                
+                {/* Texto discreto */}
+                <span className="text-xs font-light tracking-wide opacity-80">
+                  explorar
+                </span>
+              </div>
+              
+              {/* Linha inferior */}
+              <div className="w-px h-4 bg-gradient-to-b from-white/30 to-transparent"></div>
             </div>
           </div>
         </div>

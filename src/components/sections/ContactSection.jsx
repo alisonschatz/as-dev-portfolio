@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, Mail, Linkedin, MapPin, Clock, Send, Phone } from 'lucide-react';
+import { ExternalLink, Github, Mail, Linkedin, MapPin, Clock, Send } from 'lucide-react';
 
 const ContactSection = ({ isVisible }) => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -57,7 +57,7 @@ const ContactSection = ({ isVisible }) => {
 
   return (
     <section id="contact" className={`py-16 px-4 relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-      {/* Background melhorado */}
+      {/* Background limpo */}
       <div className="absolute inset-0 z-0">
         <div 
           className="w-full h-full bg-cover bg-center bg-no-repeat"
@@ -65,34 +65,18 @@ const ContactSection = ({ isVisible }) => {
             backgroundImage: `url('/contact_back.jpg')`,
           }}
         ></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/90"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-blue-900/20"></div>
+        <div className="absolute inset-0 bg-slate-900 bg-opacity-85"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800/60 via-transparent to-red-900/40"></div>
       </div>
 
-      {/* Elementos decorativos animados */}
-      <div className="absolute inset-0 z-10">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-red-400 rounded-full animate-pulse opacity-60"></div>
-        <div className="absolute top-32 right-20 w-1 h-1 bg-blue-400 rounded-full animate-ping opacity-40"></div>
-        <div className="absolute bottom-40 left-1/4 w-1 h-1 bg-amber-400 rounded-full animate-pulse opacity-50"></div>
-        <div className="absolute bottom-20 right-1/3 w-2 h-2 bg-emerald-400 rounded-full animate-ping opacity-30"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-20">
-        {/* Header melhorado */}
+      <div className="max-w-6xl mx-auto text-center relative z-20">
+        {/* Header com estilo japonês */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center space-x-4 mb-4">
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-red-400 to-transparent"></div>
-            <div className="flex items-center space-x-2">
-              <span className="text-red-300 text-2xl">🏮</span>
-              <span className="text-red-300 text-lg font-light">繋</span>
-              <span className="text-red-300 text-2xl">🏮</span>
-            </div>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-red-400 to-transparent"></div>
-          </div>
-          
           <h2 className="text-4xl md:text-5xl font-light mb-4 text-white relative">
             <span className="relative">
               Vamos Conversar
+              {/* Japanese character for "connection/relationship" */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-red-300 text-3xl opacity-60">繋</div>
               <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-red-500 via-amber-400 to-red-500 rounded-full"></div>
             </span>
           </h2>
@@ -101,7 +85,7 @@ const ContactSection = ({ isVisible }) => {
             Pronto para transformar ideias em realidade digital? Entre em contato para discutirmos seu próximo projeto.
           </p>
         </div>
-
+        
         {/* Cards de contato principais */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
           {contactMethods.map((method, index) => {
@@ -115,7 +99,7 @@ const ContactSection = ({ isVisible }) => {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 {/* Glow effect */}
-                <div className={`absolute -inset-1 bg-gradient-to-r ${method.gradient} rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-700`}></div>
+                <div className={`absolute -inset-1 bg-gradient-to-r ${method.gradient} rounded-3xl blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10`}></div>
                 
                 <a
                   href={method.href}
@@ -171,12 +155,6 @@ const ContactSection = ({ isVisible }) => {
         {/* Call to action compacto */}
         <div className="text-center">
           <div className="inline-flex flex-col items-center space-y-3 max-w-md mx-auto">
-            <div className="flex items-center space-x-3 mb-1">
-              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-red-500"></div>
-              <span className="text-red-300 text-lg">道</span>
-              <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-red-500"></div>
-            </div>
-            
             <h3 className="text-lg font-bold text-white">Pronto para começar?</h3>
             <p className="text-slate-300 text-sm">
               Vamos criar algo extraordinário juntos.

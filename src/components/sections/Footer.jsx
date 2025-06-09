@@ -6,14 +6,6 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-t border-slate-700/50">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
-        <div className="absolute top-20 right-20 w-1 h-1 bg-blue-400 rounded-full animate-ping"></div>
-        <div className="absolute bottom-10 left-1/4 w-1 h-1 bg-amber-400 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-1/3 w-2 h-2 bg-emerald-400 rounded-full animate-ping"></div>
-      </div>
-
       <div className="max-w-6xl mx-auto px-4 py-4">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
@@ -48,9 +40,6 @@ const Footer = () => {
                   filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
                 }}
               />
-              {/* Floating elements around */}
-              <div className="absolute -top-1 -right-1 w-1 h-1 bg-amber-400 rounded-full animate-ping opacity-60"></div>
-              <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-red-400 rounded-full animate-pulse opacity-80"></div>
             </div>
             
             {/* Philosophy text */}
@@ -142,15 +131,6 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="flex items-center justify-center my-3">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-red-600 to-transparent"></div>
-            <span className="text-red-400 text-xs font-light">道</span>
-            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-red-600 to-transparent"></div>
           </div>
         </div>
 
