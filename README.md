@@ -2,11 +2,11 @@
 # AS.DEV — Portfólio Pessoal
 
 > "O caminho do desenvolvedor: códigos limpos, soluções elegantes."
-![Imagem Ilustrativa](preview.png)
+
 Um portfólio moderno com inspiração na estética japonesa, desenvolvido com foco em performance, acessibilidade e design responsivo utilizando **React** e **Tailwind CSS**.
 
 ---
-
+![Imagem Ilustrativa](preview.png)
 ## 🔗 Demonstração
 
 [→ Ver Portfólio Online](https://as-dev-portfolio.vercel.app)
