@@ -90,7 +90,7 @@ const Portfolio = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Wallpaper */}
         <div className="absolute inset-0 z-0">
-          {/* BG */}
+          {/* Using local image from public folder */}
           <div 
             className="w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
@@ -111,11 +111,6 @@ const Portfolio = () => {
 
         {/* Japanese Calligraphy Strokes */}
         <div className="absolute inset-0 opacity-10 z-10">
-          <svg className="w-full h-full" viewBox="0 0 800 600">
-            <path d="M100,200 Q200,150 300,200 T500,250" stroke="#ffffff" strokeWidth="3" fill="none" />
-            <path d="M600,100 Q650,200 700,150" stroke="#ffffff" strokeWidth="2" fill="none" />
-            <circle cx="150" cy="400" r="30" stroke="#ffffff" strokeWidth="2" fill="none" />
-          </svg>
         </div>
 
         <div className="text-center z-20 px-4">
@@ -168,24 +163,6 @@ const Portfolio = () => {
       <section id="skills" className={`py-20 px-4 relative transition-all duration-1000 ${isVisible.skills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         {/* Japanese Pattern Background */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-20 h-20">
-            <div className="w-full h-full border-2 border-red-800 transform rotate-45"></div>
-          </div>
-          <div className="absolute bottom-20 right-20 w-16 h-16">
-            <div className="w-full h-full bg-red-800 rounded-full"></div>
-          </div>
-          {/* Seigaiha waves */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <svg width="200" height="100" viewBox="0 0 200 100">
-              <defs>
-                <pattern id="seigaiha" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M0,40 Q20,20 40,40" stroke="#b30000" strokeWidth="1" fill="none" />
-                  <path d="M0,40 Q10,30 20,40 Q30,30 40,40" stroke="#b30000" strokeWidth="0.5" fill="none" />
-                </pattern>
-              </defs>
-              <rect width="200" height="100" fill="url(#seigaiha)" />
-            </svg>
-          </div>
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
@@ -252,23 +229,6 @@ const Portfolio = () => {
       <section id="projects" className={`py-20 px-4 bg-gradient-to-br from-slate-100 to-stone-50 relative transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         {/* Japanese Elements */}
         <div className="absolute inset-0 opacity-5">
-          {/* Folding Screen Pattern */}
-          <div className="absolute top-20 left-20">
-            <div className="flex space-x-2">
-              <div className="w-1 h-32 bg-red-800"></div>
-              <div className="w-1 h-28 bg-red-800"></div>
-              <div className="w-1 h-36 bg-red-800"></div>
-              <div className="w-1 h-30 bg-red-800"></div>
-            </div>
-          </div>
-          
-          {/* Paper crane silhouette */}
-          <div className="absolute bottom-20 right-20">
-            <svg width="60" height="60" viewBox="0 0 100 100" className="fill-red-800">
-              <path d="M50,10 L70,30 L50,50 L30,30 Z" />
-              <path d="M50,50 L70,70 L50,90 L30,70 Z" />
-            </svg>
-          </div>
         </div>
 
         <div className="max-w-5xl mx-auto relative z-10">
@@ -349,9 +309,6 @@ const Portfolio = () => {
       <section id="contact" className={`py-20 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-red-900 relative overflow-hidden transition-all duration-1000 ${isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-20 w-40 h-40 border border-white rounded-full"></div>
-          <div className="absolute bottom-20 left-10 w-32 h-32 bg-red-600 rounded-full blur-xl"></div>
-          <div className="absolute top-1/3 left-1/3 w-1 h-40 bg-white transform rotate-45"></div>
         </div>
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
