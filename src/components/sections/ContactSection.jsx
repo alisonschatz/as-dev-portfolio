@@ -93,7 +93,7 @@ const ContactSection = ({ isVisible }) => {
             return (
               <div
                 key={method.id}
-                className="group relative"
+                className="group relative h-80"
                 onMouseEnter={() => setHoveredCard(method.id)}
                 onMouseLeave={() => setHoveredCard(null)}
                 style={{ animationDelay: `${index * 200}ms` }}
@@ -105,7 +105,7 @@ const ContactSection = ({ isVisible }) => {
                   href={method.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative block bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-700 hover:-translate-y-3 hover:shadow-2xl transform-gpu overflow-hidden"
+                  className="relative block bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-700 hover:-translate-y-3 hover:shadow-2xl transform-gpu overflow-hidden h-full"
                 >
                   {/* Icon container */}
                   <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${method.gradient} rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-500`}>
@@ -113,11 +113,11 @@ const ContactSection = ({ isVisible }) => {
                   </div>
 
                   {/* Content */}
-                  <div className="text-center">
+                  <div className="text-center flex flex-col h-full">
                     <h3 className="text-xl font-bold text-white mb-2">{method.title}</h3>
                     <p className="text-slate-300 text-sm mb-3">{method.subtitle}</p>
-                    <p className="text-white font-semibold text-base mb-3 break-all">{method.value}</p>
-                    <p className="text-slate-400 text-xs leading-relaxed">{method.description}</p>
+                    <p className="text-white font-semibold text-base mb-3 break-words overflow-hidden">{method.value}</p>
+                    <p className="text-slate-400 text-xs leading-relaxed flex-1">{method.description}</p>
                   </div>
 
                   {/* Hover indicator */}
