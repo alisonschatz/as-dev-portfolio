@@ -4,6 +4,7 @@ import { ExternalLink, Github, Mail, Linkedin } from 'lucide-react';
 const Portfolio = () => {
   const [isVisible, setIsVisible] = useState({});
 
+  // Array de habilidades
   const skills = [
     { name: 'HTML5', icon: '🌐' },
     { name: 'CSS3', icon: '🎨' },
@@ -21,6 +22,7 @@ const Portfolio = () => {
     { name: 'Git', icon: '📦' }
   ];
 
+  // Array de projetos
   const projects = [
     {
       name: 'Calculator App',
@@ -64,6 +66,7 @@ const Portfolio = () => {
     }
   ];
 
+  // Hook para observar visibilidade das seções
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -86,7 +89,8 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-stone-100">
-      {/* Hero Section */}
+         
+{/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Wallpaper */}
         <div className="absolute inset-0 z-0">
@@ -151,33 +155,117 @@ const Portfolio = () => {
               <nav className="flex space-x-8 md:space-x-12">
                 <a
                   href="#skills"
-                  className="group flex flex-col items-center space-y-2 text-white/70 hover:text-white transition-all duration-300"
+                  className="group flex flex-col items-center space-y-3 text-white/70 hover:text-white transition-all duration-300 relative cursor-pointer"
+                  style={{ 
+                    cursor: 'pointer',
+                    transform: 'translateZ(0)' // Force hardware acceleration 
+                  }}
                 >
-                  <div className="w-2 h-2 bg-white/40 rounded-full group-hover:bg-white group-hover:scale-150 transition-all duration-300"></div>
-                  <span className="text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                  <div className="relative">
+                    {/* Multiple animated rings for stronger visual impact */}
+                    <div className="absolute -inset-4 rounded-full border border-white/15 animate-ping" 
+                         style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
+                    <div className="absolute -inset-3 rounded-full border border-white/25 animate-pulse" 
+                         style={{ animationDelay: '0.5s', animationDuration: '2s' }}></div>
+                    <div className="absolute -inset-2 rounded-full border border-white/20 group-hover:border-white/60 transition-all duration-300"
+                         style={{ 
+                           boxShadow: '0 0 10px rgba(255,255,255,0.3)',
+                           animation: 'pulse 1.5s ease-in-out infinite'
+                         }}></div>
+                    
+                    {/* Enhanced main dot with stronger animations */}
+                    <div className="w-3 h-3 bg-gradient-to-r from-white/50 to-white/70 rounded-full group-hover:bg-white group-hover:scale-[2] transition-all duration-500 relative z-10 shadow-lg"
+                         style={{ 
+                           animation: 'bounce 2s infinite, pulse 1s ease-in-out infinite alternate',
+                           animationDelay: '0s',
+                           boxShadow: '0 0 15px rgba(255,255,255,0.5), inset 0 1px 0 rgba(255,255,255,0.8)'
+                         }}></div>
+                  </div>
+                  
+                  {/* Always visible label */}
+                  <span className="text-xs md:text-sm font-semibold text-white group-hover:text-red-300 group-hover:scale-110 transition-all duration-300 text-center mt-2"
+                        style={{ 
+                          textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 10px rgba(255,255,255,0.3)',
+                          opacity: '0.9'
+                        }}>
                     Habilidades
                   </span>
                 </a>
                 
                 <a
                   href="#projects"
-                  className="group flex flex-col items-center space-y-2 text-white/70 hover:text-white transition-all duration-300"
+                  className="group flex flex-col items-center space-y-3 text-white/70 hover:text-white transition-all duration-300 relative cursor-pointer"
+                  style={{ 
+                    cursor: 'pointer',
+                    transform: 'translateZ(0)' 
+                  }}
                 >
-                  <div className="w-2 h-2 bg-white/40 rounded-full group-hover:bg-white group-hover:scale-150 transition-all duration-300"></div>
-                  <span className="text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                  <div className="relative">
+                    {/* Multiple animated rings */}
+                    <div className="absolute -inset-4 rounded-full border border-white/15 animate-ping" 
+                         style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
+                    <div className="absolute -inset-3 rounded-full border border-white/25 animate-pulse" 
+                         style={{ animationDelay: '1.5s', animationDuration: '2s' }}></div>
+                    <div className="absolute -inset-2 rounded-full border border-white/20 group-hover:border-white/60 transition-all duration-300"
+                         style={{ 
+                           boxShadow: '0 0 10px rgba(255,255,255,0.3)',
+                           animation: 'pulse 1.5s ease-in-out infinite'
+                         }}></div>
+                    
+                    {/* Enhanced main dot */}
+                    <div className="w-3 h-3 bg-gradient-to-r from-white/50 to-white/70 rounded-full group-hover:bg-white group-hover:scale-[2] transition-all duration-500 relative z-10 shadow-lg"
+                         style={{ 
+                           animation: 'bounce 2s infinite, pulse 1s ease-in-out infinite alternate',
+                           animationDelay: '0.7s',
+                           boxShadow: '0 0 15px rgba(255,255,255,0.5), inset 0 1px 0 rgba(255,255,255,0.8)'
+                         }}></div>
+                  </div>
+                  
+                  {/* Always visible label */}
+                  <span className="text-xs md:text-sm font-semibold text-white group-hover:text-red-300 group-hover:scale-110 transition-all duration-300 text-center mt-2"
+                        style={{ 
+                          textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 10px rgba(255,255,255,0.3)',
+                          opacity: '0.9'
+                        }}>
                     Projetos
                   </span>
                 </a>
                 
                 <a
                   href="#contact"
-                  className="group flex flex-col items-center space-y-2 text-white/70 hover:text-white transition-all duration-300"
+                  className="group flex flex-col items-center space-y-3 text-white/70 hover:text-white transition-all duration-300 relative cursor-pointer"
+                  style={{ 
+                    cursor: 'pointer',
+                    transform: 'translateZ(0)' 
+                  }}
                 >
-                  <div className="w-2 h-2 bg-white/40 rounded-full group-hover:bg-white group-hover:scale-150 transition-all duration-300"></div>
-                  <span className="text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                  <div className="relative">
+                    {/* Multiple animated rings */}
+                    <div className="absolute -inset-4 rounded-full border border-white/15 animate-ping" 
+                         style={{ animationDelay: '2s', animationDuration: '3s' }}></div>
+                    <div className="absolute -inset-3 rounded-full border border-white/25 animate-pulse" 
+                         style={{ animationDelay: '2.5s', animationDuration: '2s' }}></div>
+                    <div className="absolute -inset-2 rounded-full border border-white/20 group-hover:border-white/60 transition-all duration-300"
+                         style={{ 
+                           boxShadow: '0 0 10px rgba(255,255,255,0.3)',
+                           animation: 'pulse 1.5s ease-in-out infinite'
+                         }}></div>
+                    
+                    {/* Enhanced main dot */}
+                    <div className="w-3 h-3 bg-gradient-to-r from-white/50 to-white/70 rounded-full group-hover:bg-white group-hover:scale-[2] transition-all duration-500 relative z-10 shadow-lg"
+                         style={{ 
+                           animation: 'bounce 2s infinite, pulse 1s ease-in-out infinite alternate',
+                           animationDelay: '1.4s',
+                           boxShadow: '0 0 15px rgba(255,255,255,0.5), inset 0 1px 0 rgba(255,255,255,0.8)'
+                         }}></div>
+                  </div>
+                  
+                  {/* Always visible label */}
+                  <span className="text-xs md:text-sm font-semibold text-white group-hover:text-red-300 group-hover:scale-110 transition-all duration-300 text-center mt-2"
+                        style={{ 
+                          textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 10px rgba(255,255,255,0.3)',
+                          opacity: '0.9'
+                        }}>
                     Contato
                   </span>
                 </a>
@@ -193,8 +281,9 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+{/* Hero Section */}
 
-      {/* Skills Section */}
+{/* Skills Section */}
       <section id="skills" className={`py-20 px-4 relative transition-all duration-1000 ${isVisible.skills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} overflow-hidden`}>
         {/* Skills Background Wallpaper */}
         <div className="absolute inset-0 z-0">
@@ -276,8 +365,9 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
-
-      {/* Projects Section */}
+{/* Skills Section */}
+     
+{/* Projects Section */}
       <section id="projects" className={`py-20 px-4 relative transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} overflow-hidden`}>
         {/* Projects Background Wallpaper */}
         <div className="absolute inset-0 z-0">
@@ -410,8 +500,9 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+{/* Projects Section */}
 
-      {/* Contact Section */}
+{/* Contact Section */}
       <section id="contact" className={`py-20 px-4 relative overflow-hidden transition-all duration-1000 ${isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         {/* Contact Background Wallpaper */}
         <div className="absolute inset-0 z-0">
@@ -525,8 +616,9 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+{/* Contact Section */}
 
-      {/* Footer */}
+{/* Footer */}
       <footer className="py-8 text-center text-slate-400 bg-slate-900 border-t border-slate-700">
         <div className="flex items-center justify-center space-x-2 mb-4">
           <div className="w-8 h-0.5 bg-red-600"></div>
@@ -537,6 +629,8 @@ const Portfolio = () => {
           © 2025 Alison Schatz - Desenvolvido com precisão e elegância
         </p>
       </footer>
+{/* Footer */}
+
     </div>
   );
 };
