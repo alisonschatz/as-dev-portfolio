@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Mail, Linkedin } from 'lucide-react';
+import { ExternalLink, Github, Mail, Linkedin } from 'lucide-react';
 
 const Portfolio = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -114,39 +114,74 @@ const Portfolio = () => {
         </div>
 
         <div className="text-center z-20 px-4">
-          {/* Logo with Japanese Influence */}
-          <div className="mb-8 relative">
-            {/* Brush stroke behind logo */}
-            <div className="absolute -inset-4 opacity-20">
-              <svg viewBox="0 0 200 60" className="w-full h-full">
-                <path d="M10,30 Q50,10 100,30 T190,35" stroke="#b30000" strokeWidth="8" fill="none" opacity="0.3" />
-              </svg>
+          {/* Logo Image */}
+          <div className="mb-12 relative">
+            {/* Logo image from public folder */}
+            <div className="flex justify-center">
+              <img
+                src="/logo.png"
+                alt="AS.DEV Logo"
+                className="h-32 md:h-48 lg:h-56 xl:h-64 w-auto object-contain"
+                style={{
+                  filter: 'drop-shadow(0 15px 35px rgba(0,0,0,0.6)) drop-shadow(0 5px 15px rgba(0,0,0,0.4))'
+                }}
+              />
             </div>
-            
-            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 tracking-wider relative">
-              <span className="relative">
-                AS.DEV
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-red-800 via-amber-600 to-red-800"></div>
-              </span>
-            </h1>
           </div>
 
           {/* Main Content */}
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-light text-white tracking-wide drop-shadow-lg">
+          <div className="space-y-8">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-wide"
+                style={{
+                  textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.4)',
+                  fontWeight: '700'
+                }}>
               Alison Schatz
             </h2>
-            <p className="text-xl md:text-2xl text-slate-200 font-light drop-shadow-md">
+            <p className="text-2xl md:text-3xl lg:text-4xl text-slate-100 font-semibold"
+               style={{
+                 textShadow: '0 3px 10px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)',
+                 fontWeight: '600'
+               }}>
               Desenvolvedor Front-End
             </p>
-            <div className="flex items-center justify-center space-x-2 text-white">
-              <div className="w-8 h-0.5 bg-white"></div>
-              <span className="text-red-300 text-xl drop-shadow-md">⚔️</span>
-              <p className="text-lg italic font-light px-4 drop-shadow-md">
-                "Codificando com a precisão de um samurai"
-              </p>
-              <span className="text-red-300 text-xl drop-shadow-md">⚔️</span>
-              <div className="w-8 h-0.5 bg-white"></div>
+
+            {/* Discrete Navigation */}
+            <div className="mt-16 flex justify-center">
+              <nav className="flex space-x-8 md:space-x-12">
+                <a
+                  href="#skills"
+                  className="group flex flex-col items-center space-y-2 text-white/70 hover:text-white transition-all duration-300"
+                >
+                  <div className="w-2 h-2 bg-white/40 rounded-full group-hover:bg-white group-hover:scale-150 transition-all duration-300"></div>
+                  <span className="text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                    Habilidades
+                  </span>
+                </a>
+                
+                <a
+                  href="#projects"
+                  className="group flex flex-col items-center space-y-2 text-white/70 hover:text-white transition-all duration-300"
+                >
+                  <div className="w-2 h-2 bg-white/40 rounded-full group-hover:bg-white group-hover:scale-150 transition-all duration-300"></div>
+                  <span className="text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                    Projetos
+                  </span>
+                </a>
+                
+                <a
+                  href="#contact"
+                  className="group flex flex-col items-center space-y-2 text-white/70 hover:text-white transition-all duration-300"
+                >
+                  <div className="w-2 h-2 bg-white/40 rounded-full group-hover:bg-white group-hover:scale-150 transition-all duration-300"></div>
+                  <span className="text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                    Contato
+                  </span>
+                </a>
+              </nav>
             </div>
           </div>
         </div>
@@ -255,7 +290,7 @@ const Portfolio = () => {
           ></div>
           
           {/* Light overlay for text readability */}
-          <div className="absolute inset-0 bg-slate-100 bg-opacity-40"></div>
+          <div className="absolute inset-0 bg-slate-100 bg-opacity-90"></div>
           
           {/* Optional: Subtle gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-stone-50/60 via-transparent to-slate-100/40"></div>
@@ -377,12 +412,29 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className={`py-20 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-red-900 relative overflow-hidden transition-all duration-1000 ${isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-10">
+      <section id="contact" className={`py-20 px-4 relative overflow-hidden transition-all duration-1000 ${isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        {/* Contact Background Wallpaper */}
+        <div className="absolute inset-0 z-0">
+          {/* Local wallpaper image */}
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('/contact_back.jpg')`,
+            }}
+          ></div>
+          
+          {/* Dark overlay for better contrast */}
+          <div className="absolute inset-0 bg-slate-900 bg-opacity-85"></div>
+          
+          {/* Gradient overlay for Japanese aesthetic */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/60 via-transparent to-red-900/40"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto text-center relative z-10">
+        {/* Background Elements */}
+        <div className="absolute inset-0 opacity-10 z-10">
+        </div>
+
+        <div className="max-w-6xl mx-auto text-center relative z-20">
           <h2 className="text-4xl md:text-5xl font-light mb-4 text-white relative">
             <span className="relative">
               Entre em Contato
