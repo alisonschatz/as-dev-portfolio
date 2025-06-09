@@ -189,19 +189,6 @@ const SkillsSection = ({ isVisible }) => {
             ))}
           </div>
         </div>
-
-        {/* Japanese-style Divider */}
-        <div className="flex items-center justify-center mt-16">
-          <div className="flex items-center space-x-4">
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-red-800"></div>
-            <div className="flex items-center space-x-2">
-              <span className="text-red-800 text-xl">🏮</span>
-              <span className="text-red-800 text-sm font-light">道</span>
-              <span className="text-red-800 text-xl">🏮</span>
-            </div>
-            <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-red-800"></div>
-          </div>
-        </div>
       </div>
     </section>
   );
