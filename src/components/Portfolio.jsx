@@ -243,12 +243,29 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className={`py-20 px-4 bg-gradient-to-br from-slate-100 to-stone-50 relative transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        {/* Japanese Elements */}
-        <div className="absolute inset-0 opacity-5">
+      <section id="projects" className={`py-20 px-4 relative transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} overflow-hidden`}>
+        {/* Projects Background Wallpaper */}
+        <div className="absolute inset-0 z-0">
+          {/* Local wallpaper image */}
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('/projects_back.jpg')`,
+            }}
+          ></div>
+          
+          {/* Light overlay for text readability */}
+          <div className="absolute inset-0 bg-slate-100 bg-opacity-90"></div>
+          
+          {/* Optional: Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-stone-50/60 via-transparent to-slate-100/40"></div>
         </div>
 
-        <div className="max-w-5xl mx-auto relative z-10">
+        {/* Japanese Elements */}
+        <div className="absolute inset-0 opacity-5 z-10">
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-20">
           <h2 className="text-4xl font-light text-center mb-4 text-slate-800 relative">
             <span className="relative">
               Projetos
