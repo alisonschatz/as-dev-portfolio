@@ -1,25 +1,26 @@
+
+
 import React, { useState, useEffect } from 'react';
-import { ExternalLink, Github, Mail, Linkedin } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Mail, Linkedin } from 'lucide-react';
 
 const Portfolio = () => {
   const [isVisible, setIsVisible] = useState({});
+  const [currentSkill, setCurrentSkill] = useState(0);
 
-  // Array de habilidades
+  // Array de habilidades (com arquivos SVG reais)
   const skills = [
-    { name: 'HTML5', icon: '🌐' },
-    { name: 'CSS3', icon: '🎨' },
-    { name: 'JavaScript', icon: '⚡' },
-    { name: 'TypeScript', icon: '🔷' },
-    { name: 'React', icon: '⚛️' },
-    { name: 'Next.js', icon: '▲' },
-    { name: 'Vue', icon: '💚' },
-    { name: 'Node.js', icon: '🚀' },
-    { name: 'Dart', icon: '🎯' },
-    { name: 'Flutter', icon: '💙' },
-    { name: 'Sass', icon: '💎' },
-    { name: 'Firebase', icon: '🔥' },
-    { name: 'MongoDB', icon: '🍃' },
-    { name: 'Git', icon: '📦' }
+    { name: 'HTML5', image: '/skills/html5.svg' },
+    { name: 'CSS3', image: '/skills/css.svg' },
+    { name: 'JavaScript', image: '/skills/javascript.svg' },
+    { name: 'TypeScript', image: '/skills/typescript.svg' },
+    { name: 'React', image: '/skills/react.svg' },
+    { name: 'Next.js', image: '/skills/nextdotjs.svg' },
+    { name: 'Node.js', image: '/skills/nodedotjs.svg' },
+    { name: 'Dart', image: '/skills/dart.svg' },
+    { name: 'Flutter', image: '/skills/flutter.svg' },
+    { name: 'Sass', image: '/skills/sass.svg' },
+    { name: 'Firebase', image: '/skills/firebase.svg' },
+    { name: 'MongoDB', image: '/skills/mongodb.svg' }
   ];
 
   // Array de projetos
@@ -66,6 +67,25 @@ const Portfolio = () => {
     }
   ];
 
+  // Funções do carrossel
+  const nextSkill = () => {
+    setCurrentSkill((prev) => (prev + 1) % skills.length);
+  };
+
+  const prevSkill = () => {
+    setCurrentSkill((prev) => (prev - 1 + skills.length) % skills.length);
+  };
+
+  // Função para obter skills visíveis no carrossel
+  const getVisibleSkills = () => {
+    const visible = [];
+    for (let i = -2; i <= 2; i++) {
+      const index = (currentSkill + i + skills.length) % skills.length;
+      visible.push({ ...skills[index], position: i });
+    }
+    return visible;
+  };
+
   // Hook para observar visibilidade das seções
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,6 +106,15 @@ const Portfolio = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  // Auto-advance carrossel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSkill((prev) => (prev + 1) % skills.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [skills.length]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-stone-100">
@@ -162,30 +191,23 @@ const Portfolio = () => {
                   }}
                 >
                   <div className="relative">
-                    {/* Multiple animated rings for stronger visual impact */}
-                    <div className="absolute -inset-4 rounded-full border border-white/15 animate-ping" 
-                         style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
-                    <div className="absolute -inset-3 rounded-full border border-white/25 animate-pulse" 
-                         style={{ animationDelay: '0.5s', animationDuration: '2s' }}></div>
-                    <div className="absolute -inset-2 rounded-full border border-white/20 group-hover:border-white/60 transition-all duration-300"
-                         style={{ 
-                           boxShadow: '0 0 10px rgba(255,255,255,0.3)',
-                           animation: 'pulse 1.5s ease-in-out infinite'
-                         }}></div>
+                    {/* Simplified animated rings - more subtle */}
+                    <div className="absolute -inset-2 rounded-full border border-white/10 animate-pulse" 
+                         style={{ animationDelay: '0s', animationDuration: '4s' }}></div>
+                    <div className="absolute -inset-1 rounded-full border border-white/15 group-hover:border-white/40 transition-all duration-300"></div>
                     
-                    {/* Enhanced main dot with stronger animations */}
-                    <div className="w-3 h-3 bg-gradient-to-r from-white/50 to-white/70 rounded-full group-hover:bg-white group-hover:scale-[2] transition-all duration-500 relative z-10 shadow-lg"
+                    {/* Subtle main dot */}
+                    <div className="w-2 h-2 bg-white/60 rounded-full group-hover:bg-white group-hover:scale-125 transition-all duration-300 relative z-10"
                          style={{ 
-                           animation: 'bounce 2s infinite, pulse 1s ease-in-out infinite alternate',
-                           animationDelay: '0s',
-                           boxShadow: '0 0 15px rgba(255,255,255,0.5), inset 0 1px 0 rgba(255,255,255,0.8)'
+                           animation: 'pulse 3s ease-in-out infinite',
+                           animationDelay: '0s'
                          }}></div>
                   </div>
                   
                   {/* Always visible label */}
-                  <span className="text-xs md:text-sm font-semibold text-white group-hover:text-red-300 group-hover:scale-110 transition-all duration-300 text-center mt-2"
+                  <span className="text-xs md:text-sm font-medium text-white/90 group-hover:text-red-200 group-hover:scale-105 transition-all duration-300 text-center mt-2"
                         style={{ 
-                          textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 10px rgba(255,255,255,0.3)',
+                          textShadow: '0 2px 8px rgba(0,0,0,0.8)',
                           opacity: '0.9'
                         }}>
                     Habilidades
@@ -201,30 +223,23 @@ const Portfolio = () => {
                   }}
                 >
                   <div className="relative">
-                    {/* Multiple animated rings */}
-                    <div className="absolute -inset-4 rounded-full border border-white/15 animate-ping" 
-                         style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
-                    <div className="absolute -inset-3 rounded-full border border-white/25 animate-pulse" 
-                         style={{ animationDelay: '1.5s', animationDuration: '2s' }}></div>
-                    <div className="absolute -inset-2 rounded-full border border-white/20 group-hover:border-white/60 transition-all duration-300"
-                         style={{ 
-                           boxShadow: '0 0 10px rgba(255,255,255,0.3)',
-                           animation: 'pulse 1.5s ease-in-out infinite'
-                         }}></div>
+                    {/* Simplified animated rings */}
+                    <div className="absolute -inset-2 rounded-full border border-white/10 animate-pulse" 
+                         style={{ animationDelay: '1.5s', animationDuration: '4s' }}></div>
+                    <div className="absolute -inset-1 rounded-full border border-white/15 group-hover:border-white/40 transition-all duration-300"></div>
                     
-                    {/* Enhanced main dot */}
-                    <div className="w-3 h-3 bg-gradient-to-r from-white/50 to-white/70 rounded-full group-hover:bg-white group-hover:scale-[2] transition-all duration-500 relative z-10 shadow-lg"
+                    {/* Subtle main dot */}
+                    <div className="w-2 h-2 bg-white/60 rounded-full group-hover:bg-white group-hover:scale-125 transition-all duration-300 relative z-10"
                          style={{ 
-                           animation: 'bounce 2s infinite, pulse 1s ease-in-out infinite alternate',
-                           animationDelay: '0.7s',
-                           boxShadow: '0 0 15px rgba(255,255,255,0.5), inset 0 1px 0 rgba(255,255,255,0.8)'
+                           animation: 'pulse 3s ease-in-out infinite',
+                           animationDelay: '1s'
                          }}></div>
                   </div>
                   
                   {/* Always visible label */}
-                  <span className="text-xs md:text-sm font-semibold text-white group-hover:text-red-300 group-hover:scale-110 transition-all duration-300 text-center mt-2"
+                  <span className="text-xs md:text-sm font-medium text-white/90 group-hover:text-red-200 group-hover:scale-105 transition-all duration-300 text-center mt-2"
                         style={{ 
-                          textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 10px rgba(255,255,255,0.3)',
+                          textShadow: '0 2px 8px rgba(0,0,0,0.8)',
                           opacity: '0.9'
                         }}>
                     Projetos
@@ -240,30 +255,23 @@ const Portfolio = () => {
                   }}
                 >
                   <div className="relative">
-                    {/* Multiple animated rings */}
-                    <div className="absolute -inset-4 rounded-full border border-white/15 animate-ping" 
-                         style={{ animationDelay: '2s', animationDuration: '3s' }}></div>
-                    <div className="absolute -inset-3 rounded-full border border-white/25 animate-pulse" 
-                         style={{ animationDelay: '2.5s', animationDuration: '2s' }}></div>
-                    <div className="absolute -inset-2 rounded-full border border-white/20 group-hover:border-white/60 transition-all duration-300"
-                         style={{ 
-                           boxShadow: '0 0 10px rgba(255,255,255,0.3)',
-                           animation: 'pulse 1.5s ease-in-out infinite'
-                         }}></div>
+                    {/* Simplified animated rings */}
+                    <div className="absolute -inset-2 rounded-full border border-white/10 animate-pulse" 
+                         style={{ animationDelay: '3s', animationDuration: '4s' }}></div>
+                    <div className="absolute -inset-1 rounded-full border border-white/15 group-hover:border-white/40 transition-all duration-300"></div>
                     
-                    {/* Enhanced main dot */}
-                    <div className="w-3 h-3 bg-gradient-to-r from-white/50 to-white/70 rounded-full group-hover:bg-white group-hover:scale-[2] transition-all duration-500 relative z-10 shadow-lg"
+                    {/* Subtle main dot */}
+                    <div className="w-2 h-2 bg-white/60 rounded-full group-hover:bg-white group-hover:scale-125 transition-all duration-300 relative z-10"
                          style={{ 
-                           animation: 'bounce 2s infinite, pulse 1s ease-in-out infinite alternate',
-                           animationDelay: '1.4s',
-                           boxShadow: '0 0 15px rgba(255,255,255,0.5), inset 0 1px 0 rgba(255,255,255,0.8)'
+                           animation: 'pulse 3s ease-in-out infinite',
+                           animationDelay: '2s'
                          }}></div>
                   </div>
                   
                   {/* Always visible label */}
-                  <span className="text-xs md:text-sm font-semibold text-white group-hover:text-red-300 group-hover:scale-110 transition-all duration-300 text-center mt-2"
+                  <span className="text-xs md:text-sm font-medium text-white/90 group-hover:text-red-200 group-hover:scale-105 transition-all duration-300 text-center mt-2"
                         style={{ 
-                          textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 10px rgba(255,255,255,0.3)',
+                          textShadow: '0 2px 8px rgba(0,0,0,0.8)',
                           opacity: '0.9'
                         }}>
                     Contato
@@ -317,38 +325,112 @@ const Portfolio = () => {
           </h2>
           
           {/* Subtitle */}
-          <p className="text-center text-slate-600 mb-16 italic">
+          <p className="text-center text-slate-600 mb-0 italic">
             "Domínio através da prática constante"
           </p>
           
-          {/* Simple Grid Layout */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 max-w-5xl mx-auto">
-            {skills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-slate-100 hover:border-red-200 text-center relative overflow-hidden"
-                style={{ 
-                  animationDelay: `${index * 100}ms`,
-                  opacity: isVisible.skills ? 1 : 0,
-                  transform: isVisible.skills ? 'translateY(0)' : 'translateY(20px)'
-                }}
+          {/* Carousel Container */}
+          <div className="relative max-w-6xl mx-auto mt-0">
+            <div className="flex items-center justify-center py-4 px-4">
+              {/* Previous Button */}
+              <button
+                onClick={prevSkill}
+                className="absolute left-0 z-30 p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-slate-50 border border-slate-200 hover:border-red-300 flex-shrink-0"
               >
-                {/* Subtle Japanese pattern on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
-                  <div className="w-full h-full bg-gradient-to-br from-red-50 to-amber-50"></div>
+                <ChevronLeft className="w-6 h-6 text-slate-600" />
+              </button>
+
+              {/* Skills Carousel - Fixed Container with controlled height */}
+              <div className="flex items-end justify-center w-full max-w-4xl mx-auto overflow-hidden h-48">
+                <div className="flex items-end justify-center space-x-4 w-full h-full">
+                  {getVisibleSkills().map((skill, index) => (
+                    <div
+                      key={`${skill.name}-${index}`}
+                      className={`relative transition-all duration-700 ease-out flex-shrink-0 flex items-end ${
+                        skill.position === 0
+                          ? 'z-20 opacity-100'
+                          : Math.abs(skill.position) === 1
+                          ? 'z-15 opacity-80'
+                          : 'z-10 opacity-50'
+                      }`}
+                      style={{
+                        width: '140px',
+                        height: skill.position === 0 ? '170px' : 
+                               Math.abs(skill.position) === 1 ? '150px' : '130px',
+                        display: 'flex',
+                        alignItems: 'flex-end'
+                      }}
+                    >
+                      <div className={`group bg-white rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-500 cursor-pointer border-2 ${
+                        skill.position === 0 ? 'border-red-200 bg-gradient-to-br from-white to-red-50' : 'border-slate-100'
+                      } hover:border-red-300 text-center relative overflow-hidden w-full h-auto`}>
+                        
+                        {/* Subtle Japanese pattern on hover */}
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+                          <div className="w-full h-full bg-gradient-to-br from-red-50 to-amber-50"></div>
+                        </div>
+                        
+                        {/* Icon/Image */}
+                        <div className="flex items-center justify-center mb-3 h-12 md:h-16 relative z-10">
+                          <img
+                            src={skill.image}
+                            alt={skill.name}
+                            className={`object-contain group-hover:scale-110 transition-transform duration-300 filter hover:brightness-110 ${
+                              skill.position === 0 ? 'w-12 h-12 md:w-14 md:h-14' : 'w-10 h-10 md:w-12 md:h-12'
+                            }`}
+                            style={{
+                              filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                            }}
+                            onError={(e) => {
+                              // Fallback to placeholder if image fails to load
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'flex';
+                            }}
+                          />
+                          {/* Fallback placeholder (hidden by default) */}
+                          <div 
+                            className={`flex items-center justify-center text-slate-400 border-2 border-dashed border-slate-300 rounded-lg group-hover:scale-110 transition-transform duration-300 ${
+                              skill.position === 0 ? 'w-12 h-12 md:w-14 md:h-14' : 'w-10 h-10 md:w-12 md:h-12'
+                            }`}
+                            style={{ display: 'none' }}
+                          >
+                            <span className="text-xs font-medium">?</span>
+                          </div>
+                        </div>
+                        
+                        {/* Name */}
+                        <h3 className={`font-medium text-slate-800 leading-tight relative z-10 ${
+                          skill.position === 0 ? 'text-sm md:text-base' : 'text-xs md:text-sm'
+                        }`}>
+                          {skill.name}
+                        </h3>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                
-                {/* Icon */}
-                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300 relative z-10">
-                  {skill.icon}
-                </div>
-                
-                {/* Name */}
-                <h3 className="text-sm font-medium text-slate-800 leading-tight relative z-10">
-                  {skill.name}
-                </h3>
               </div>
-            ))}
+
+              {/* Next Button */}
+              <button
+                onClick={nextSkill}
+                className="absolute right-0 z-30 p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-slate-50 border border-slate-200 hover:border-red-300 flex-shrink-0"
+              >
+                <ChevronRight className="w-6 h-6 text-slate-600" />
+              </button>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center space-x-2 mt-6">
+              {skills.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSkill(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentSkill ? 'bg-red-800 w-6' : 'bg-slate-300 hover:bg-slate-400'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Japanese-style Divider */}
@@ -375,12 +457,12 @@ const Portfolio = () => {
           <div 
             className="w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('/projects_back.jpg')`,
+              backgroundImage: `url('/3.png')`,
             }}
           ></div>
           
           {/* Light overlay for text readability */}
-          <div className="absolute inset-0 bg-slate-100 bg-opacity-90"></div>
+          <div className="absolute inset-0 bg-slate-100 bg-opacity-40"></div>
           
           {/* Optional: Subtle gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-stone-50/60 via-transparent to-slate-100/40"></div>
