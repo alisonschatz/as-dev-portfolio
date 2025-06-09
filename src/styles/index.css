@@ -21,24 +21,30 @@ body {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  /* Ocultar scrollbar no Firefox */
+  scrollbar-width: none;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Ocultar scrollbar no Chrome, Safari, Edge */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  background: transparent;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
+/* Garantir que o scroll ainda funcione */
+body, html {
+  -ms-overflow-style: none;  /* IE e Edge */
+  scrollbar-width: none;     /* Firefox */
+  overflow-y: scroll;        /* Manter funcionalidade de scroll */
 }
 
-::-webkit-scrollbar-thumb {
-  background: #b30000;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #8b0000;
+/* Para todos os elementos que possam ter scroll */
+*::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  background: transparent;
 }
 
 /* Custom animations */
@@ -55,4 +61,14 @@ html {
 ::selection {
   background-color: #b30000;
   color: white;
+}
+
+/* Esconder scrollbar em containers específicos se necessário */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
