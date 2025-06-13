@@ -4,6 +4,36 @@ import { ExternalLink, Github } from 'lucide-react';
 const ProjectsSection = ({ isVisible }) => {
   // Array de projetos com informações atualizadas
   const projects = [
+            {
+      name: 'Ateliê Baobá',
+      image: '/projects/atelie-baoba.png',
+      description: 'Um site feito com carinho para a escola de educação infantil Ateliê Baobá, combinando design acolhedor com tecnologia moderna.',
+      stack: 'React,Next.js, JavaScript, Tailwind',
+      demo: 'https://escola-atelie-baoba-final.vercel.app/',
+      repo: 'https://github.com/alisonschatz/escola-atelie-baoba-final',
+      accentColor: 'from-indigo-500 to-blue-600',
+      iconBg: 'bg-indigo-500'
+    },
+        {
+      name: 'InventoryX',
+      image: '/projects/inventoryx.png',
+      description: 'Uma experiência interativa e gamificada para gerenciar suas ferramentas de produtividade como se estivesse em um inventário de RPG.',
+      stack: 'React,Next.js, JavaScript, Tailwind',
+      demo: 'https://inventoryx-next.vercel.app/',
+      repo: 'https://github.com/alisonschatz/InventoryX',
+      accentColor: 'from-indigo-500 to-blue-600',
+      iconBg: 'bg-indigo-500'
+    },
+        {
+      name: 'IP Address Tracker',
+      image: '/projects/ip-tracker.jpg',
+      description: 'Rastreador de endereços IP com mapas interativos',
+      stack: 'React, JavaScript, Tailwind',
+      demo: 'https://ip-address-tracker-master-wine.vercel.app/',
+      repo: 'https://github.com/alisonschatz/ip-address-tracker-master',
+      accentColor: 'from-blue-500 to-cyan-600',
+      iconBg: 'bg-blue-500'
+    },
     {
       name: 'Calculator App',
       image: '/projects/calculator-app.jpg',
@@ -25,42 +55,12 @@ const ProjectsSection = ({ isVisible }) => {
       iconBg: 'bg-emerald-500'
     },
     {
-      name: 'IP Address Tracker',
-      image: '/projects/ip-tracker.jpg',
-      description: 'Rastreador de endereços IP com mapas interativos',
-      stack: 'React, JavaScript, Tailwind',
-      demo: 'https://ip-address-tracker-master-wine.vercel.app/',
-      repo: 'https://github.com/alisonschatz/ip-address-tracker-master',
-      accentColor: 'from-blue-500 to-cyan-600',
-      iconBg: 'bg-blue-500'
-    },
-    {
-      name: 'Anime Tracker',
-      image: '/projects/anime-tracker.jpg',
-      description: 'Plataforma completa para acompanhar animes',
-      stack: 'Flutter, Dart',
-      demo: 'https://animetrackerv1.vercel.app/',
-      repo: 'https://github.com/alisonschatz/anime_tracker_v1',
-      accentColor: 'from-purple-500 to-pink-600',
-      iconBg: 'bg-purple-500'
-    },
-    {
       name: 'Quest Tasks',
       image: '/projects/quest-tasks.jpg',
       description: 'Sistema avançado de gerenciamento de tarefas',
       stack: 'React, JavaScript, Tailwind',
       demo: 'https://quest-tasks-pucrs-tcc.vercel.app/',
       repo: 'https://github.com/alisonschatz/quest-tasks-pucrs-tcc',
-      accentColor: 'from-indigo-500 to-blue-600',
-      iconBg: 'bg-indigo-500'
-    },
-        {
-      name: 'Ateliê Baobá',
-      image: '/projects/quest-tasks.jpg',
-      description: 'Sistema avançado de gerenciamento de tarefas',
-      stack: 'React, JavaScript, Tailwind',
-      demo: 'https://escola-atelie-baoba-final.vercel.app/',
-      repo: 'https://github.com/alisonschatz/escola-atelie-baoba-final',
       accentColor: 'from-indigo-500 to-blue-600',
       iconBg: 'bg-indigo-500'
     }
