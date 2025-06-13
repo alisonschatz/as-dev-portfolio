@@ -53,6 +53,16 @@ const ProjectsSection = ({ isVisible }) => {
       repo: 'https://github.com/alisonschatz/quest-tasks-pucrs-tcc',
       accentColor: 'from-indigo-500 to-blue-600',
       iconBg: 'bg-indigo-500'
+    },
+        {
+      name: 'Ateliê Baobá',
+      image: '/projects/quest-tasks.jpg',
+      description: 'Sistema avançado de gerenciamento de tarefas',
+      stack: 'React, JavaScript, Tailwind',
+      demo: 'https://escola-atelie-baoba-final.vercel.app/',
+      repo: 'https://github.com/alisonschatz/escola-atelie-baoba-final',
+      accentColor: 'from-indigo-500 to-blue-600',
+      iconBg: 'bg-indigo-500'
     }
   ];
 
